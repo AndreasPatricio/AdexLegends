@@ -1,0 +1,45 @@
+*:root{
+    --black: #281D21;
+    --red: #CD2F2F;
+    --white: #ECE8E1;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+.regist-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.regist-form{
+    background-color: var(--white);
+    padding: 50px;
+    
+}
+
+.label-input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.label-input label{
+    font-family: "Bebas Neue";
+    font-size: 30px;
+    color: var(--black);
+}
+
+.label-input-gender label{
+    font-size: 20px;
+    font-family: "Exo";
+}
+
+.label-input input{
+    border: none;
+    padding: 8px 14px;
+}
