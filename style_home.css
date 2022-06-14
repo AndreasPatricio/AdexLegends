@@ -11,54 +11,77 @@
     scroll-behavior: smooth;
 }
 
+body{
+    padding-top: 83px;
+}
+
+nav{
+    position: fixed;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+}
+
 .nav-container{
     display: flex;
     justify-content: space-between;
-    padding: 20px 100px 5px 75px;
+    padding: 12px 66px 8px 104px;
     background-color: var(--black);
 }
 
-nav a{
+.nav-logo{
+    margin-right: 50px;
+}
+
+.nav-menu a , .nav-sign a{
     text-decoration: none;
     font-family: "Bebas Neue";
     color: white;
     font-size: 24px;
-    padding-bottom: 5px;
+    
 }
 
-nav a:not(.nav-home, .nav-logo){
-    padding-bottom: 10px;
+.nav-menu a:not(.nav-selected) , .nav-sign{
+    margin-bottom: 5px;
 }
 
-nav a img{
+.nav-logo img{
     width: 115px;
-    height: 55px;
-
+    height: 60px;
 }
 
-.nav-left, .nav-sign{
+.nav-left{
+    display: flex;
+}
+
+.nav-menu, .nav-sign{
     display: flex;
     align-items: center;
 }
 
-.nav-left >*:not(:first-child){
+.nav-menu >*:not(:first-child){
     margin-left: 40px;
 }
 
-.nav-home{
+.nav-selected{
     border: solid;
     border-width: 0px 0px 5px;
+    padding: 4px 0px;
+}
+
+.nav-menu a:hover , .nav-sign a:hover{
+    color: var(--red);
 }
 
 /* Play Now */
 
 #play-now{
-    height: 620px;
+    height: 572px;
 }
 
 .play-container{
     display: flex;
-    padding: 150px 0px 0px 100px;
+    padding: 150px 0px 0px 104px;
 }
 
 .play-content{
@@ -75,8 +98,8 @@ nav a img{
     font-size: 18px;
     font-weight: 600px;
     font-family: "Exo";
-    font-weight: 600px;
-    margin-bottom: 45px;
+    font-weight: 600;
+    margin-bottom: 48px;
     color: var(--white);
     
 }
@@ -87,19 +110,26 @@ nav a img{
     background-color: var(--red);
     padding: 15px 25px;
     font-family: "Exo";
+    font-size: 18px;
 }
+
+.play-content a:hover{
+    background-color: var(--white);
+    color: var(--red);
+    border: solid;
+}
+
 
 video{
     position: absolute;
     width: 100%;
-    
 }
 
 .video-dark{
     background-color: rgba(0, 0, 0,0.2);
     position: absolute;
     width: 100%;
-    height: 620px;
+    height: 572px;
 }
 
 /* Latest News */
@@ -109,11 +139,12 @@ video{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    
 }
 
 .news-container{
     display: flex;
-    padding: 120px 100px;
+    padding: 105px 104px;
     flex-direction: column;
 }
 
@@ -126,19 +157,29 @@ video{
 .news-title h1{
     font-size: 100px;
     font-family: "Bebas Neue";
-
+    margin-right: 30px;
 }
 
 .news-title a{
+    text-decoration: none;
     color: var(--red);
     font-size: 24px;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
     font-family: "Bebas Neue";
+}
+
+.news-title a:hover{
+    color: var(--black);
 }
 
 .news-card{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.card-content{
+    text-decoration: none;
 }
 
 .card-detail{
@@ -149,6 +190,7 @@ video{
 .card-date{
     font-family: "Bebas Neue";
     font-size: 20px;
+    color: var(--black);
 }
 
 .card-info{
@@ -169,6 +211,7 @@ video{
     font-family: "Bebas Neue";
     font-size: 40px;
     font-weight: normal;
+    color: var(--black);
 }
 
 .card-img{
@@ -180,16 +223,16 @@ video{
 }
 
 .news-img{
-    width: 365px;
-    height: 230px;
+    width: 364px;
+    height: 228px;
 }
 
 .trapesium{
-    border-bottom: 115px solid red;
+    border-bottom: 115px solid rgba(205, 47, 47, 0.8);
     border-left: 120px solid transparent;
     width: 245px;
     position: absolute;
-    display: none;
+    opacity: 0;
 }
 
 .arrow{
@@ -201,7 +244,7 @@ video{
 }
 
 .hover-img{
-    display: none;
+    opacity: 0;
     width: 365px;
     height: 230px;
     background-color: rgba(0, 0, 0,0.2);
@@ -210,7 +253,7 @@ video{
 
 .card-img:hover .trapesium, .card-img:hover .hover-img{
     cursor: pointer;
-    display: block;
+    opacity: 1;
 }
 
 .card-img:hover .arrow{
@@ -226,30 +269,31 @@ video{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 800px;
-    display: flex;
+
 }
 
 .fav-container{
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    width: 60%;
-    padding: 50px 0px 0px 120px;
+    align-items: center;
+    padding-left: 100px;
+    
 }
 
-.fav-container h1{
+.fav-content h1{
     font-family: "Bebas Neue";
-    font-size: 100px;
+    font-size: 90px;
     font-weight: normal;
     margin-bottom: 25px;
+    
 }
 
-.fav-container p{
+.fav-content p{
     font-family: "Exo";
     font-size: 30px;
-    padding-right: 180px;
+    padding-right: 20px;
 }
+
 
 /* Footer */
 
@@ -260,7 +304,7 @@ video{
 .footer-container{
     display: flex;
     justify-content: space-between;
-    padding: 10px 120px;
+    padding: 10px 104px;
     align-items: center;
 }
 
@@ -309,3 +353,223 @@ video{
     text-align: end;
     margin-bottom: 15px
 }
+
+.footer-right a:hover{
+    color: var(--red);
+}
+
+/* Tablet */
+
+@media screen and (max-width: 768px) {
+    
+    .nav-container{
+        padding: 12px 40px 8px 40px;
+    }
+
+    .nav-logo{
+        margin-right: 30px;
+    }
+
+    .nav-menu >*:not(:first-child){
+        margin-left: 30px;
+    }
+
+    /* Play */
+
+    .play-container{
+        padding: 120px 0px 0px 60px;
+    }
+
+    video{
+        width: 180%;
+    }
+    
+    .video-dark{
+        height: 579px;
+    }
+
+    /* Latest News */
+
+    #news{
+        background-image: url();
+        background-color: var(--white);
+        
+    }
+    
+    .news-container{
+        padding: 60px 0px;
+    }
+
+    .news-title h1{
+        font-size: 90px;
+        margin-right: 20px;
+        padding-left: 60px;
+    }
+    
+    .news-card{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .card{
+        margin-bottom: 60px;
+    }
+    
+    /* Favorite */
+
+    #favorite{
+        background-image: url();
+        background-color: var(--white);
+    }
+
+    .fav-container{
+        flex-direction: column;
+        padding-left: 60px;
+    }
+
+    .fav-content h1{
+        margin-top: 40px;
+    }
+
+    .fav-content p{
+        font-size: 25px;
+        padding-right: 20px;
+    }
+
+    /* Footer */
+
+    .footer-right{
+        display: none;
+    }
+    
+    .footer-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 50px 0px 30px 0px;
+    }
+    
+    .footer-mid{
+        margin: 40px 0px 0px 0px;
+        
+    }
+    
+    .medsos a{
+        width: 50px;
+        height: 50px;
+    }
+    
+    
+    .footer-mid p{
+        margin-top: 40px;
+    }
+}
+
+/* Mobile */
+@media screen and (max-width: 425px) {
+    
+    .nav-container{
+        padding: 12px 12px 8px 12px;
+    }
+
+    .nav-logo{
+        margin-right: 15px;
+        
+    }
+
+    .nav-logo img{
+        width: 100px;
+    }
+
+    .nav-menu a , .nav-sign a{
+        font-size: 20px;
+        
+    }
+
+    .nav-menu >*:not(:first-child){
+        margin-left: 15px;
+    }
+
+    /* Play Now */
+
+    #play-now{
+        height: 100%;
+    }
+    
+    .play-container{
+        padding: 20px 0px;
+
+    }
+
+    .play-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .play-content img{
+        width: 255px;
+        height: 155px;
+    }
+    
+    .play-content p{
+        font-size: 14px;
+        text-align: center;
+    }
+    
+    video{
+        width: 200%;
+    }
+    
+    .video-dark{
+        height: 355px;
+
+    }
+
+    /* Latest News */
+
+    .news-title{
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0px 40px;
+    }
+
+    .news-title h1{
+        font-size: 60px;
+        margin-right: 0px;
+        padding-left: 0px;
+    }
+    
+    /* Favorite */
+
+    .fav-container{
+        flex-direction: column;
+        padding-left: 0px;
+        padding: 0px 40px;
+    }
+
+    .fav-content h1{
+        margin-top: 0px;
+        font-size: 60px;
+        margin-bottom: 0px;
+    }
+
+    .fav-content p{
+        font-size: 16px;
+    }
+
+    .fav-container img{
+        width: 125%;
+    }
+
+    /* Footer */
+
+    .footer-mid p{
+        margin-top: 40px;
+        font-size: 14px;
+    }
+}   
